@@ -71,7 +71,20 @@
         android:layout_marginEnd="174dp"
         android:text="Add Song"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/comments" />
+
+    <TextView
+        android:id="@+id/errors"
+        android:layout_width="224dp"
+        android:layout_height="160dp"
+        android:layout_marginStart="93dp"
+        android:layout_marginTop="23dp"
+        android:layout_marginEnd="94dp"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/add_song" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 
 class AddSongScreen : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -17,6 +18,7 @@ class AddSongScreen : AppCompatActivity() {
 
         val add_song = findViewById<Button>(R.id.add_song)
 
+        val errors = findViewById<TextView>(R.id.errors)
 
 
         add_song?.setOnClickListener {
