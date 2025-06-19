@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 
 class MainActivity : AppCompatActivity() {
 
@@ -65,4 +66,26 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    // Receive data back from AddSongScreen after adding a new song
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (requestCode == 1 && resultCode == Activity.RESULT_OK && data != null) {
+            // Retrieve song data from Intent
+            val title = data.getStringExtra("title")
+            val artist = data.getStringExtra("artist")
+            val rating = data.getIntExtra("rating", 0)
+            val comment = data.getStringExtra("comment")
+
+            // Store data into arrays at current songCount position
+            songTitles[songCount] = title
+            artistNames[songCount] = artist
+            ratings[songCount] = rating
+            comments[songCount] = comment
+
+            songCount++ // increment song count after successful add
+
+            Toast.makeText(this, "Song added successfully!", Toast.LENGTH_SHORT).show()
+        }
+    }
 }
