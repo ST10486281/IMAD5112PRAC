@@ -37,21 +37,27 @@ class MainActivity : AppCompatActivity() {
 
         // When user clicks "View Details", open DetailViewScreen
         view_details.setOnClickListener {
-            val intent = Intent(this, DetailViewScreen::class.java)
-            // Pass arrays and songCount to DetailViewScreen
-            intent.putExtra("songTitles", songTitles)
-            intent.putExtra("artistNames", artistNames)
-            intent.putExtra("ratings", ratings)
-            intent.putExtra("comments", comments)
-            intent.putExtra("songCount", songCount)
-            startActivity(intent)
+            openDetailView()
         }
+
 
         // When user clicks "Exit App", close the app
         exit_app.setOnClickListener {
             finish() // closes MainActivity
         }
     }
+
+    // Define the function to handle viewing details
+    private fun openDetailView() {
+        val intent = Intent(this, DetailViewScreen::class.java)
+        intent.putExtra("songTitles", songTitles)
+        intent.putExtra("artistNames", artistNames)
+        intent.putExtra("ratings", ratings)
+        intent.putExtra("comments", comments)
+        intent.putExtra("songCount", songCount)
+        startActivity(intent)
+    }
+
 
     // Receive data back from AddSongScreen after adding a new song
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
