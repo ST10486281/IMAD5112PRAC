@@ -16,5 +16,18 @@ class AddSongScreen : AppCompatActivity() {
         val comments = findViewById<EditText>(R.id.comments)
 
         val add_song = findViewById<Button>(R.id.add_song)
+
+
+
+        add_song?.setOnClickListener {
+
+            val rating_1_to_5_clean = rating_1_to_5 .text.toString().toIntOrNull()
+
+            if (rating_1_to_5_clean != null) {
+
+
+            }
+
+        }
     }
 }
