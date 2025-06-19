@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 
 class AddSongScreen : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,7 +31,8 @@ class AddSongScreen : AppCompatActivity() {
 
             // Check if playlist is already full
             if (songCount >= 4) {
-                errors.text = "Playlist is full. Cannot add more songs."
+                Toast.makeText(this, "Playlist is full. Cannot add more songs.", Toast.LENGTH_SHORT).show()
+                finish()  // Return to MainActivity
                 return@setOnClickListener
             }
 
